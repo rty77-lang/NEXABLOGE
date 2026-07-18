@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NEXA 소통기관</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 상단 광고 -->
+    <div class="top-ad" onclick="adClick('상단 광고')">
+        <span class="ad-mark">광고</span>
+        NEXA 소통기관 공식 홍보 공간입니다!
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <h1>NEXA 소통기관</h1>
+
+            <nav>
+                <button onclick="showHome()">홈</button>
+                <button onclick="openWriteBox()">글 작성</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 왼쪽 광고 -->
+    <aside
+        class="side-ad left-ad"
+        onclick="adClick('왼쪽 광고')"
+    >
+        <span>광고</span>
+        <strong>게임 서버</strong>
+        <p>새로운 서버를 만나보세요!</p>
+    </aside>
+
+    <!-- 오른쪽 광고 -->
+    <aside
+        class="side-ad right-ad"
+        onclick="adClick('오른쪽 광고')"
+    >
+        <span>광고</span>
+        <strong>사이트 홍보</strong>
+        <p>당신의 사이트를 알리세요!</p>
+    </aside>
+
+    <main>
+        <section class="intro">
+            <h2>모두의 이야기가 모이는 공간</h2>
+
+            <p>
+                소식, 의견, 질문을 자유롭게 작성해 보세요.
+            </p>
+        </section>
+
+        <!-- 중간 광고 -->
+        <section class="ad-grid">
+            <div
+                class="ad-box"
+                onclick="adClick('게임 광고')"
+            >
+                <span>광고</span>
+
+                <h3>최신 게임 소식</h3>
+
+                <p>
+                    인기 게임과 업데이트 소식을 확인하세요.
+                </p>
+            </div>
+
+            <div
+                class="ad-box"
+                onclick="adClick('이벤트 광고')"
+            >
+                <span>광고</span>
+
+                <h3>NEXA 공식 이벤트</h3>
+
+                <p>
+                    이벤트에 참여하고 특별 보상을 받아보세요.
+                </p>
+            </div>
+
+            <div
+                class="ad-box"
+                onclick="adClick('홍보 광고')"
+            >
+                <span>광고</span>
+
+                <h3>웹사이트 홍보</h3>
+
+                <p>
+                    자신의 사이트와 프로젝트를 홍보하세요.
+                </p>
+            </div>
+        </section>
+
+        <section class="search-area">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="제목, 내용 또는 작성자 검색"
+                oninput="renderPosts()"
+            >
+        </section>
+
+        <section
+            id="writeBox"
+            class="write-box hidden"
+        >
+            <h2>새 글 작성</h2>
+
+            <input
+                type="text"
+                id="writerInput"
+                placeholder="작성자 이름"
+                maxlength="20"
+            >
+
+            <input
+                type="text"
+                id="titleInput"
+                placeholder="글 제목"
+                maxlength="50"
+            >
+
+            <textarea
+                id="contentInput"
+                placeholder="내용을 입력하세요."
+                maxlength="1000"
+            ></textarea>
+
+            <div class="write-buttons">
+                <button
+                    class="cancel-button"
+                    onclick="closeWriteBox()"
+                >
+                    취소
+                </button>
+
+                <button
+                    class="upload-button"
+                    onclick="addPost()"
+                >
+                    게시하기
+                </button>
+            </div>
+        </section>
+
+        <!-- 긴 배너 광고 -->
+        <section
+            class="wide-ad"
+            onclick="adClick('배너 광고')"
+        >
+            <span class="ad-mark">광고</span>
+
+            <div>
+                <strong>당신의 프로젝트를 홍보하세요!</strong>
+
+                <p>
+                    NEXA 광고 신청을 통해 더 많은 사람에게 알려보세요.
+                </p>
+            </div>
+        </section>
+
+        <section class="post-section">
+            <div class="post-title-line">
+                <h2>최근 게시글</h2>
+
+                <select
+                    id="sortSelect"
+                    onchange="renderPosts()"
+                >
+                    <option value="latest">
+                        최신순
+                    </option>
+
+                    <option value="likes">
+                        좋아요순
+                    </option>
+                </select>
+            </div>
+
+            <div id="postList"></div>
+
+            <p
+                id="emptyMessage"
+                class="empty-message"
+            >
+                게시글이 없습니다.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 NEXA Communication</p>
+    </footer>
+
+    <!-- 하단 고정 광고 -->
+    <div id="bottomAd" class="bottom-ad">
+        <button
+            class="bottom-ad-close"
+            onclick="closeBottomAd()"
+        >
+            ×
+        </button>
+
+        <div onclick="adClick('하단 광고')">
+            <span class="ad-mark">광고</span>
+
+            <strong>
+                NEXA 공식 광고 — 지금 바로 확인하세요!
+            </strong>
+        </div>
+    </div>
+
+    <!-- 팝업 광고 -->
+    <div id="popupAd" class="popup-ad hidden">
+        <div class="popup-ad-content">
+            <button
+                class="popup-close"
+                onclick="closePopupAd()"
+            >
+                ×
+            </button>
+
+            <span class="popup-ad-label">
+                광고
+            </span>
+
+            <div class="popup-image">
+                AD
+            </div>
+
+            <h2>특별 광고 이벤트!</h2>
+
+            <p>
+                지금 광고를 확인하고 새로운 소식과
+                이벤트를 만나보세요.
+            </p>
+
+            <button
+                class="popup-ad-button"
+                onclick="adClick('팝업 광고')"
+            >
+                광고 확인하기
+            </button>
+
+            <p id="closeTimer" class="close-timer">
+                3초 후 닫기 가능
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

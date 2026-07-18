@@ -1,0 +1,771 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 80px;
+
+    background: #f3f5f8;
+    color: #202124;
+
+    font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* 상단 광고 */
+
+.top-ad {
+    width: 100%;
+    padding: 12px 15px;
+
+    background: #ffd900;
+    color: #222222;
+
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.ad-mark {
+    display: inline-block;
+
+    margin-right: 8px;
+    padding: 3px 7px;
+
+    border-radius: 4px;
+
+    background: #111111;
+    color: white;
+
+    font-size: 11px;
+}
+
+/* 헤더 */
+
+header {
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #dddddd;
+
+    backdrop-filter: blur(10px);
+}
+
+.header-inner {
+    width: min(1000px, 92%);
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-inner h1 {
+    margin: 0;
+
+    color: #2457e6;
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav button {
+    padding: 10px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #333333;
+
+    font-size: 15px;
+}
+
+nav button:hover {
+    background: #eef2ff;
+    color: #2457e6;
+}
+
+/* 메인 */
+
+main {
+    width: min(900px, 92%);
+    min-height: calc(100vh - 180px);
+
+    margin: 35px auto;
+}
+
+/* 소개 */
+
+.intro {
+    padding: 38px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2457e6,
+            #743de6
+        );
+
+    color: white;
+
+    box-shadow:
+        0 12px 30px
+        rgba(36, 87, 230, 0.2);
+}
+
+.intro h2 {
+    margin: 0 0 10px;
+
+    font-size: 30px;
+}
+
+.intro p {
+    margin: 0;
+
+    opacity: 0.9;
+}
+
+/* 광고 3개 */
+
+.ad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin: 25px 0;
+}
+
+.ad-box {
+    min-height: 170px;
+    padding: 22px;
+
+    border: 1px solid #dfe3ea;
+    border-radius: 15px;
+
+    background: white;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.ad-box:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(0, 0, 0, 0.1);
+}
+
+.ad-box span {
+    display: inline-block;
+
+    padding: 3px 7px;
+
+    border-radius: 4px;
+
+    background: #eeeeee;
+    color: #777777;
+
+    font-size: 11px;
+}
+
+.ad-box h3 {
+    margin: 18px 0 8px;
+
+    color: #222222;
+}
+
+.ad-box p {
+    margin: 0;
+
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 검색 */
+
+.search-area {
+    margin: 25px 0;
+}
+
+.search-area input {
+    width: 100%;
+    padding: 15px 18px;
+
+    border: 1px solid #d5d9e0;
+    border-radius: 12px;
+
+    background: white;
+
+    font-size: 16px;
+    outline: none;
+}
+
+.search-area input:focus {
+    border-color: #2457e6;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(36, 87, 230, 0.12);
+}
+
+/* 글 작성 */
+
+.write-box {
+    margin-bottom: 30px;
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.07);
+}
+
+.write-box h2 {
+    margin-top: 0;
+}
+
+.write-box input,
+.write-box textarea {
+    width: 100%;
+
+    margin-bottom: 12px;
+    padding: 13px;
+
+    border: 1px solid #d5d9e0;
+    border-radius: 9px;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.write-box textarea {
+    min-height: 170px;
+
+    resize: vertical;
+}
+
+.write-box input:focus,
+.write-box textarea:focus {
+    border-color: #2457e6;
+}
+
+.write-buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+.write-buttons button {
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 8px;
+}
+
+.cancel-button {
+    background: #e8e8e8;
+    color: #333333;
+}
+
+.upload-button {
+    background: #2457e6;
+    color: white;
+}
+
+.upload-button:hover {
+    background: #1949c9;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 긴 광고 */
+
+.wide-ad {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin: 25px 0;
+    padding: 22px;
+
+    border: 2px dashed #f0b800;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff7ca,
+            #ffffff
+        );
+
+    cursor: pointer;
+}
+
+.wide-ad strong {
+    font-size: 18px;
+}
+
+.wide-ad p {
+    margin: 5px 0 0;
+
+    color: #666666;
+    font-size: 14px;
+}
+
+/* 게시글 */
+
+.post-title-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-title-line select {
+    padding: 9px 12px;
+
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+
+    background: white;
+}
+
+.post-card {
+    margin-bottom: 16px;
+    padding: 23px;
+
+    border: 1px solid #e1e4e8;
+    border-radius: 14px;
+
+    background: white;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(0, 0, 0, 0.08);
+}
+
+.post-card h3 {
+    margin: 0 0 8px;
+
+    font-size: 21px;
+}
+
+.post-info {
+    margin-bottom: 15px;
+
+    color: #777777;
+    font-size: 13px;
+}
+
+.post-content {
+    margin-bottom: 20px;
+
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.post-buttons {
+    display: flex;
+
+    gap: 8px;
+}
+
+.post-buttons button {
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 7px;
+}
+
+.like-button {
+    background: #edf2ff;
+    color: #2457e6;
+}
+
+.delete-button {
+    background: #ffecec;
+    color: #d22929;
+}
+
+.empty-message {
+    padding: 45px;
+
+    border-radius: 14px;
+
+    background: white;
+    color: #888888;
+
+    text-align: center;
+}
+
+/* 양쪽 광고 */
+
+.side-ad {
+    position: fixed;
+    top: 230px;
+
+    z-index: 50;
+
+    width: 150px;
+    min-height: 230px;
+
+    padding: 20px;
+
+    border: 1px solid #dcdfe5;
+    border-radius: 14px;
+
+    background: white;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.08);
+}
+
+.side-ad span {
+    display: inline-block;
+
+    margin-bottom: 30px;
+    padding: 3px 7px;
+
+    border-radius: 4px;
+
+    background: #eeeeee;
+    color: #777777;
+
+    font-size: 11px;
+}
+
+.side-ad strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #2457e6;
+    font-size: 18px;
+}
+
+.side-ad p {
+    color: #777777;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.left-ad {
+    left: 20px;
+}
+
+.right-ad {
+    right: 20px;
+}
+
+/* 푸터 */
+
+footer {
+    padding: 28px;
+
+    border-top: 1px solid #dddddd;
+
+    background: white;
+    color: #777777;
+
+    text-align: center;
+}
+
+/* 하단 고정 광고 */
+
+.bottom-ad {
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+
+    z-index: 500;
+
+    width: min(750px, 92%);
+
+    padding: 17px 45px 17px 20px;
+
+    border: 1px solid #d3d7df;
+    border-radius: 13px;
+
+    background: white;
+
+    text-align: center;
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.2);
+}
+
+.bottom-ad > div {
+    cursor: pointer;
+}
+
+.bottom-ad-close {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eeeeee;
+    color: #555555;
+
+    font-size: 20px;
+}
+
+/* 팝업 광고 */
+
+.popup-ad {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.popup-ad-content {
+    position: relative;
+
+    width: min(440px, 100%);
+    padding: 34px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.4);
+
+    animation: popupOpen 0.3s ease;
+}
+
+@keyframes popupOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eeeeee;
+    color: #555555;
+
+    font-size: 22px;
+}
+
+.popup-close:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.popup-ad-label {
+    display: inline-block;
+
+    margin-bottom: 15px;
+    padding: 4px 8px;
+
+    border-radius: 5px;
+
+    background: #eeeeee;
+    color: #777777;
+
+    font-size: 11px;
+}
+
+.popup-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 150px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2457e6,
+            #8a3de6
+        );
+
+    color: white;
+
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.popup-ad-content h2 {
+    margin: 22px 0 10px;
+}
+
+.popup-ad-content p {
+    color: #666666;
+    line-height: 1.6;
+}
+
+.popup-ad-button {
+    margin-top: 8px;
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #2457e6;
+    color: white;
+
+    font-size: 15px;
+}
+
+.popup-ad-button:hover {
+    background: #1949c9;
+}
+
+.close-timer {
+    margin-bottom: 0 !important;
+
+    font-size: 12px !important;
+}
+
+/* 반응형 */
+
+@media (max-width: 1250px) {
+    .side-ad {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding-bottom: 100px;
+    }
+
+    .header-inner h1 {
+        font-size: 19px;
+    }
+
+    nav button {
+        padding: 9px 10px;
+    }
+
+    .intro {
+        padding: 26px;
+    }
+
+    .intro h2 {
+        font-size: 23px;
+    }
+
+    .ad-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ad-box {
+        min-height: 130px;
+    }
+
+    .wide-ad {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .post-card {
+        padding: 18px;
+    }
+
+    .bottom-ad {
+        bottom: 8px;
+
+        padding: 15px 42px 15px 15px;
+
+        font-size: 13px;
+    }
+}
